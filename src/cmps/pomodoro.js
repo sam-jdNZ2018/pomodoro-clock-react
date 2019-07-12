@@ -1,21 +1,10 @@
-const render = ReactDOM;
+import React from 'react';
+import SettingChanger from './setting-changer';
+
 const SESSION = "SESSION";
 const BREAK = "BREAK";
 const INITIAL_STATE = {status: "", time_type: SESSION, time_left: 25 * 60, break_length: 5, session_length: 25};
 const BEEP = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/success.mp3";
-
-const SettingChanger = props => {
-  return (
-     <div class="setting-cont">
-       <div id={props.sname + "-label"} style={props.labelColor}>{props.sname.charAt(0).toUpperCase() + props.sname.slice(1)} Length </div>
-       <div class="setting-inner">
-         <button id={props.sname + "-decrement"} style={props.visible} type="button" onClick={()=>props.changer(-1)} ><i className="fas fa-minus"></i></button>
-         <label id={props.sname + "-length"} style={props.labelColor}> {props.setting}</label>
-         <button id={props.sname + "-increment"} style={props.visible} type="button" onClick={()=>props.changer(1)} ><i className="fas fa-plus"></i></button>
-       </div>
-     </div>
-  );
-};
 
 class Pomodoro extends React.Component{
  constructor(props){
@@ -175,4 +164,4 @@ class Pomodoro extends React.Component{
   }
 }
 
-ReactDOM.render(<Pomodoro/>,document.getElementById("main"));
+export default Pomodoro;
